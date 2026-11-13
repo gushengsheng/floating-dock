@@ -1,0 +1,16 @@
+# build output
+dist/
+
+# compiled helper tools (sources in tools/ are kept)
+tools/*.exe
+
+# local screenshots (may contain personal desktop content)
+screenshots/
+
+# editor / OS noise
+.vs/
+*.user
+*.suo
+Thumbs.db
+desktop.ini
+*.log
