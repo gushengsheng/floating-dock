@@ -12,8 +12,6 @@ namespace FloatingDock
         {
             public string Path;
             public string Name;
-            public string Dir;
-            public string Lower;
         }
 
         private readonly object _lock = new object();
@@ -105,8 +103,6 @@ namespace FloatingDock
                     Item it = new Item();
                     it.Path = f;
                     it.Name = System.IO.Path.GetFileName(f);
-                    it.Dir = dir;
-                    it.Lower = it.Name.ToLowerInvariant();
                     outItems.Add(it);
                 }
                 catch { }
@@ -147,7 +143,7 @@ namespace FloatingDock
                 for (int i = 0; i < _items.Count; i++)
                 {
                     Item it = _items[i];
-                    int at = it.Lower.IndexOf(q, StringComparison.Ordinal);
+                    int at = it.Name.IndexOf(q, StringComparison.OrdinalIgnoreCase);
                     if (at < 0) continue;
                     if (at == 0) prefix.Add(it);
                     else contains.Add(it);

@@ -398,7 +398,9 @@ namespace FloatingDock
             sp.Children.Add(name);
 
             TextBlock dir = new TextBlock();
-            dir.Text = item.Dir;
+            string folder = "";
+            try { folder = System.IO.Path.GetDirectoryName(item.Path); } catch { }
+            dir.Text = folder;
             dir.FontSize = 10.2;
             dir.Foreground = TextFaint;
             dir.TextTrimming = TextTrimming.CharacterEllipsis;
